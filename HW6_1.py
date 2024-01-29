@@ -24,9 +24,11 @@ def chek_date(data: str) -> bool:
     else:
         return False
 
+
 def _check_leap(year: str) -> bool:
     int_year = int(year)
     return int_year % 4 == 0 and int_year % 100 != 0 or int_year % 400 == 0
+
 
 if len(argv) >= 2:
     print(chek_date(argv[1]))
