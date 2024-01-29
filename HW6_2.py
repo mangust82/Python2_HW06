@@ -33,5 +33,5 @@ def check_position(queens: list[tuple[int,int]]) -> bool:
             else:
                 return True
 
-
-print(f'Ферзи не бьют друг друга' if check_position(queens) else f'Ферзи бьют друг друга')
+if __name__ == '__main__':
+    print(f'Ферзи не бьют друг друга' if check_position(queens) else f'Ферзи бьют друг друга')
