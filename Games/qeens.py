@@ -7,9 +7,9 @@ __all__ = ['line_f', 'check_position']
 
 # queens = [(1,1), (2,4), (3,2), (1,5), (5,3), (6,7), (7,5), (8,8)]
 queens = [(1,3), (2,7), (3,2), (4,8), (5,5), (6,1), (7,4), (8,6)]
-# new_list = queens.copy()
 
-def line_f(qeen: ((int, int))) -> set((int,int)):
+
+def line_f(qeen: tuple[int, int]) -> set[tuple[int,int]]:
     k1 = qeen[1] - qeen[0]
     k2 = qeen[1] + qeen[0]
     m1 = {(x, x + k1) for x in range(1,9) if 1 <= x + k1 <= 8 and x != qeen[0]}
@@ -18,11 +18,11 @@ def line_f(qeen: ((int, int))) -> set((int,int)):
     return all_m
 
 
-def check_position(queens: list((int,int))) -> bool:
+def check_position(queens: list[tuple[int,int]]) -> bool:
     """
-    Function  checks vertical horizontal and diagonal position queens to each other.
+    Function  checks vertical horizontal and diagonal position of the queens to each other.
 
-    :param qeen: list of tuple of int numbers
+    :param queens: list of tuple of int numbers
     :return: bool     
     """
     x_set = {queens[i][0] for i in range(0,8)}
