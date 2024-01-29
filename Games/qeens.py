@@ -25,7 +25,7 @@ def check_position(queens: list[tuple[int,int]]) -> bool:
     :param queens: list of tuple of int numbers
     :return: bool     
     """
-    x_set = {queens[i][0] for i in range(0,8)}
+    x_set = {queens[i][0] for i in range(0,8)} #проверяем стоят ли ферзи на одной вертикали или горизонтали по длине множества если стоят то координаты совпадают и множество уменьшается на одно значение.
     y_set = {queens[i][1] for i in range(0,8)}
     if len(x_set)<8 or len(y_set)<8:
         return False
@@ -34,10 +34,11 @@ def check_position(queens: list[tuple[int,int]]) -> bool:
             new_list = queens.copy()
             new_list.pop(i)
             Test = set(new_list).intersection(line_f(queens[i]))
-            if set(new_list).intersection(line_f(queens[i])) is None:
+            if set(new_list).intersection(line_f(queens[i])) is None: # проверяем есть ли координата ферзя среди координат битой диагонали другого ферзя. Если пересечений множеств нет то ферзи не бьются.
                 return False
             else:
                 return True
+
 
 if __name__ == '__main__':
     print(f'Ферзи не бьют друг друга' if check_position(queens) else f'Ферзи бьют друг друга')
